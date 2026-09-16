@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
 public class App extends JPanel {
 
@@ -7,6 +8,7 @@ public class App extends JPanel {
     protected void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         super.paintComponent(g2d);
+        Random random = new Random();
         g2d.setColor(Color.WHITE);
         g2d.fillRect(0, 0, getWidth(), getHeight());
         g2d.setColor(Color.BLACK);
@@ -22,6 +24,33 @@ public class App extends JPanel {
         for (int r = 0; r < 11; r++){
             g2d.drawLine(offsetx, offsety, offsetx + 320, offsety);
             offsety += 32;
+        }
+        offsetx = 40;
+        for(int i = 0; i < 10; i++){
+            int randColor = random.nextInt( 6);
+            switch(randColor){
+                case 0:
+                    g.setColor(Color.RED);
+                    break;
+                case 1:
+                    g.setColor(Color.ORANGE);
+                    break;
+                case 2:
+                    g.setColor(Color.YELLOW);
+                    break;
+                case 3:
+                    g.setColor(Color.GREEN);
+                    break;
+                case 4:
+                    g.setColor(Color.BLUE);
+                    break;
+                case 5:
+                    g.setColor(Color.BLACK);
+                    break;
+            }
+            int height = random.nextInt(310) + 10;
+            g2d.fillRect(offsetx, 350 - height, 15, height);
+            offsetx += 32;
         }
         //g.setColor(Color.BLUE);
         //g.fillRect(50, 50, 200, 100);
