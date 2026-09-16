@@ -7,9 +7,11 @@ public class App extends JPanel {
     protected void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         super.paintComponent(g2d);
+        g2d.setColor(Color.WHITE);
+        g2d.fillRect(0, 0, getWidth(), getHeight());
         g2d.setColor(Color.BLACK);
         g2d.setStroke(new BasicStroke(2, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
-        int offset = 40;
+        int offset = 30;
         int offsetx = offset;
         int offsety = offset;
         for (int c = 0; c < 11; c++){
