@@ -16,19 +16,19 @@ public class App extends JPanel {
         int offset = 30;
         int offsetx = offset;
         int offsety = offset;
-        for (int c = 0; c < 11; c++){
+        for (int c = 0; c < 11; c++) {
             g2d.drawLine(offsetx, offsety, offsetx, offsety + 320);
             offsetx += 32;
         }
         offsetx = offset;
-        for (int r = 0; r < 11; r++){
+        for (int r = 0; r < 11; r++) {
             g2d.drawLine(offsetx, offsety, offsetx + 320, offsety);
             offsety += 32;
         }
         offsetx = 40;
-        for(int i = 0; i < 10; i++){
-            int randColor = random.nextInt( 6);
-            switch(randColor){
+        for (int i = 0; i < 10; i++) {
+            int randColor = random.nextInt(6);
+            switch (randColor) {
                 case 0:
                     g.setColor(Color.RED);
                     break;
@@ -52,15 +52,17 @@ public class App extends JPanel {
             g2d.fillRect(offsetx, 350 - height, 15, height);
             offsetx += 32;
         }
-        //g.setColor(Color.BLUE);
-        //g.fillRect(50, 50, 200, 100);
-        //g.setColor(Color.RED);
-        //g.drawString("Hello, World!", 100, 100);
-
     }
 
     public static void main(String[] args) throws Exception {
-        JFrame frame = new JFrame("My Application");
+        JFrame frame = new JFrame("Random Rectangles");
+
+        JButton button = new JButton("Redraw");
+        frame.add(button, BorderLayout.SOUTH);
+
+        button.addActionListener(e -> {
+            frame.repaint();
+        });
 
         frame.add(new App());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
